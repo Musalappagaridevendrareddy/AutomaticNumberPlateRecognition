@@ -134,7 +134,7 @@ def home():
                     temp = json.loads(jsonStr.decode())
 
                     # return Response(jsonStr.decode())
-                    return render_template("index.html", data={temp['numberPlateVal']})
+                    return render_template("index.html", data={'output':temp['numberPlateVal'], 'image':croppedImagepath})
                 else:
                     # responseDict = {"base64Image": "Unknown", "partDetails" : "Unknown", "numberPlateVal": "Unknown"}
                     responseDict = {"base64Image": "Unknown", "numberPlateVal": "Unknown"}
@@ -171,6 +171,8 @@ def home():
         return render_template("index.html", data={temp['numberPlateVal']})
     return render_template("index.html", data="")
 # port = int(os.getenv("PORT"))
+
+
 if __name__ == '__main__':
     clApp = ClientApp()
     # host = "127.0.0.1"
